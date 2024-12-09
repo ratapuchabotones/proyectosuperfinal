@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comics Universe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+        .diego{
+            background-color: #6f42c1;
+
+        }
+        .navbar {
+            background-color: #6f42c1;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar .nav-link {
+            color: white !important;
+            font-size: 1.1rem;
+        }
+        .navbar .nav-link:hover {
+            color: #c7a0e0 !important;
+            transition: color 0.3s ease;
+        }
+        .navbar-toggler-icon {
+            background-color: #fff;
+        }
+        header {
+            padding: 20px;
+        }
+        header img {
+            height: 50px;
+        }
+        .input-group {
+            max-width: 300px;
+        }
+        .carousel-item img {
+            border-radius: 10px;
+            max-width: 250px;
+            height: auto;
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+        }
+        .carousel-item img:hover {
+            transform: scale(1.05);
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #6f42c1;
+        }
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        .fw-bold {
+            font-weight: bold;
+        }
+        .text-primary {
+            color: #6f42c1 !important;
+        }
+        .text-danger {
+            color: #dc3545 !important;
+        }
+        .carousel-inner {
+            padding-bottom: 20px;
+        }
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+        }
+        .social-icons a:hover {
+            color: #6f42c1;
+        }
+        .review-stars {
+            color: #ffcc00;
+        }
+        .buy-btn {
+            background-color: #6f42c1;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            background-color: #5a2e94;
+        }
+        @media (max-width: 768px) {
+            .carousel-item img {
+                max-width: 200px;
+            }
+            .navbar-nav {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación mejorada -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Galaktus Comics</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="bi bi-house-door"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-bookmark-star"></i> Novedades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-tag"></i> Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="bi bi-envelope"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <img src="img\logo-removebg-preview.png" alt="Comics Universe">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar...">
+                <button class="btn btn-primary">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+            <button class="btn btn-outline-primary" id="cart-btn">
+                <i class="bi bi-cart"></i>
+                <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Carrusel -->
+    <div id="libraryCarousel" class="carousel slide container mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Primera fila de carrusel -->
+            <div class="carousel-item active">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <img src="img/thenightgwendie.png" class="d-block w-100 mb-2" alt="Comic 1">
+                        <p class="fw-bold text-primary">Comic 1</p>
+                        <p class="text-danger fw-bold">$150.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/talesofsuspense.jpg" class="d-block w-100 mb-2" alt="Comic 2">
+                        <p class="fw-bold text-primary">Comic 2</p>
+                        <p class="text-danger fw-bold">$200.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/all_american_16.png" class="d-block w-100 mb-2" alt="Comic 3">
+                        <p class="fw-bold text-primary">Comic 3</p>
+                        <p class="text-danger fw-bold">$180.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda fila de carrusel -->
+            <div class="carousel-item">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <img src="img/amazingfantasy15.jpg" class="d-block w-100 mb-2" alt="Comic 4">
+                        <p class="fw-bold text-primary">Comic 4</p>
+                        <p class="text-danger fw-bold">$220.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/superman2.png" class="d-block w-100 mb-2" alt="Comic 5">
+                        <p class="fw-bold text-primary">Comic 5</p>
+                        <p class="text-danger fw-bold">$170.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img/detective27.png" class="d-block w-100 mb-2" alt="Comic 6">
+                        <p class="fw-bold text-primary">Comic 6</p>
+                        <p class="text-danger fw-bold">$190.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nueva fila de carrusel -->
+            <div class="carousel-item">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <img src="img\superman1.png" class="d-block w-100 mb-2" alt="Comic 7">
+                        <p class="fw-bold text-primary">Comic 7</p>
+                        <p class="text-danger fw-bold">$250.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img\thedarknightreturns.png" class="d-block w-100 mb-2" alt="Comic 8">
+                        <p class="fw-bold text-primary">Comic 8</p>
+                        <p class="text-danger fw-bold">$210.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="img\flashcomic.png" class="d-block w-100 mb-2" alt="Comic 9">
+                        <p class="fw-bold text-primary">Comic 9</p>
+                        <p class="text-danger fw-bold">$230.00</p>
+                        <button class="buy-btn" onclick="addToCart()">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#libraryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#libraryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <!-- Últimos Lanzamientos -->
+<section class="container mt-5">
+    <h2 class="text-center mb-4 text-primary">Últimos Lanzamientos</h2>
+    <div class="row">
+        <!-- Comic 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="img/endgame2.png" class="card-img-top" alt="Avengers Endgame">
+                <div class="card-body">
+                    <h5 class="card-title">Avengers: Endgame</h5>
+                    <p class="card-text">El épico final de los Vengadores, con un viaje en el tiempo que cambiará el destino del universo Marvel.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <!-- Comic 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="img/nowayhome.png" class="card-img-top" alt="Spider-Man No Way Home">
+                <div class="card-body">
+                    <h5 class="card-title">Spider-Man: No Way Home</h5>
+                    <p class="card-text">La historia de cómo Spider-Man lucha con las consecuencias de sus decisiones y enfrenta a nuevos villanos.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <!-- Comic 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="img/black.png" class="card-img-top" alt="Black Widow">
+                <div class="card-body">
+                    <h5 class="card-title">Black Widow</h5>
+                    <p class="card-text">Una mirada profunda a la vida y los secretos de Natasha Romanoff antes de unirse a los Vengadores.</p>
+                    <a href="#" class="btn btn-primary">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonios -->
+<section class="container mt-5">
+    <h2 class="text-center mb-4 text-primary">Lo que dicen nuestros clientes</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Comics Universe tiene una gran selección de cómics. ¡Estoy encantado con mis compras!"</p>
+                    <h5 class="card-title">Juan Pérez</h5>
+                    <div class="review-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Me encanta la rapidez de entrega y la calidad de los cómics. Definitivamente seguiré comprando aquí."</p>
+                    <h5 class="card-title">Ana Gómez</h5>
+                    <div class="review-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">"Excelente servicio y productos de calidad. ¡Muy recomendable para los fanáticos de los cómics!"</p>
+                    <h5 class="card-title">Carlos Fernández</h5>
+                    <div class="review-stars">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                        <i class="bi bi-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer class="diego">
+        <p>© 2024 Comics Universe - Todos los derechos reservados</p>
+        <div class="social-icons">
+            <a href="#" class="bi bi-facebook" target="_blank"></a>
+            <a href="#" class="bi bi-instagram" target="_blank"></a>
+            <a href="#" class="bi bi-twitter" target="_blank"></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cartCount = 0;
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+    </script>
+</body>
+</html>
